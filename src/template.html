@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>%= htmlWebpackPlugin.options.title %></title>
+    <!-- <script src="../src/index.js" type="module"></script> -->
+    <!--NOTE: by referrring the webpack bundler - I dont need to add type="module"-->
+    <script src="./bundle.js"></script>
+  </head>
+  <body>
+    <form>
+      <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" />
+      </div>
+      <div>
+        <label for="title">Content</label>
+        <input type="text" id="content" name="content" />
+      </div>
+      <button>Save Post</button>
+      <div id="errors"></div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+
+Task List: 
+
+  1.Create the validation.js module:
+
+  2.Import the ValidationError class 
+
+  3.Create and export the validateNotEmpty function 
+  
+  4.Test the validateNotEmpty function
