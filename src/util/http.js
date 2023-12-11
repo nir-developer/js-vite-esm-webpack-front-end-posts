@@ -11,6 +11,8 @@ export async function sendDataRequest(data) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
+    //IMPORTANT!!! TEST 1 PASS EVEN IF SOME ONE ADDING THIS BREAKING CHANGE TO NOT STRINGIFY!!Or even null!)
+    //body: data,
   });
 
   //Note: even if the request failed - the response (promise) is not null!

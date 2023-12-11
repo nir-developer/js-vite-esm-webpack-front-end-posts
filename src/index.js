@@ -1,12 +1,23 @@
-import { sendDataRequest } from "./util/http";
+import { extractPostData, savePost } from "./posts/posts";
 
-//I DID NOT ADD THE userId(check - ok I got nothing for this value) and id(this one is auto generated)
-//OK I RECIEVED: { title: 'Nir Title', content: 'Nir Content', id: 101 }
+const formElement = document.querySelector("form");
 
-const post = {
-  title: "Niron Title",
-  content: "Niron Content",
-};
+async function handleSubmit(e) {
+  e.preventDefault();
 
-//OK!!
-sendDataRequest(post).then((post) => console.log(post));
+  const formData = new FormData(formElement);
+  try {
+    //Extract form inputs(may throw ValidationError)
+    const post = extractPostData(new FormData(formElement));
+    //Save the post -  may throw HttpError
+    const newPost = await savePost(post);
+
+    alert("post created");
+  } catch (error) {
+    console.error(error.message);
+  }
+
+  console.log("Form submitted");
+}
+
+formElement.addEventListener("submit", handleSubmit);
